@@ -1,6 +1,8 @@
 import express, { static } from 'express';
 import { join } from 'path';
+const cors = require('cors');
 const app = express();
+app.use(cors);
 app.use(static(__dirname + '/dist/patient-frontend'));
 app.get('/*', function(req,res) {
 res.sendFile(join(__dirname+'/dist/patient-frontend/index.html'));});
