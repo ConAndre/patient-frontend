@@ -1,9 +1,9 @@
-import express, { static } from 'express';
-import { join } from 'path';
+const express = require('express');
+const path = require('path');
 const cors = require('cors');
 const app = express();
 app.use(cors);
-app.use(static(__dirname + '/dist/patient-frontend'));
+app.use(express.static(__dirname + '/dist/patient-frontend'));
 app.get('/*', function(req,res) {
-res.sendFile(join(__dirname+'/dist/patient-frontend/index.html'));});
+res.sendFile(path.join(__dirname+'/dist/patient-frontend/index.html'));});
 app.listen(process.env.PORT || 8080);
